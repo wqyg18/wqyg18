@@ -14,6 +14,16 @@
     <script type="text/javascript" src="./file/roundabout.js"></script>
     <script type="text/javascript" src="./file/roundabout_shape.js"></script>
 </head>
+<style>
+    #text{
+        position: fixed;
+        top: 20%;
+        left: 50px;
+        font-size: 20px;
+        color: aqua;
+        max-width: 520px;
+    }
+</style>
 
 <body>
     <div id="clock-box">
@@ -50,12 +60,12 @@
 
             var divTyping = document.getElementById('text')
             var i = 0;
-            var strs = 'rf;gnbahklartjh;oiitjoatnim[iohqtnhil5jhoiq5noiqphno5iqnhopi45nhio35pniohj3pqhn'
+            var strs = '如果你看见的那些我不会轻易流下的眼泪，我和你分别时的激动，我所说所做的一切，都没有表露出我对你的真实情意，我的心上人，我没有其他的证据可以献给你……让上帝保护你、宽容你、祝福你，直至永远，甚至是在另一个世界。'
             function typing(str){
             if(i<=str.length){
                 var timer=setInterval(function(){
                 divTyping.innerHTML = str.slice(0, i++)
-                },400)  
+                },30)  
             }
             else{
                 clearInterval(timer)

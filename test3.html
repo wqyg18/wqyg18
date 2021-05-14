@@ -2,12 +2,17 @@
 <html>
     <style>
         #message{
-            color: crimson;
+            color: aqua;
             position: relative;
             top: 200px;
             font-family: 'Courier New', Courier, monospace;
             font-size: 50px;
             text-align: center;
+            height: auto;
+            width: auto;
+            background-image: url("./rose.jpg");
+            background-repeat: no-repeat;
+            background-position-x: center;
         }
         #progess{
             width: 50%;
@@ -25,7 +30,7 @@
         }
     </style>
     <body>
-        <div id="message">
+        <div id="message" >
             准备好了吗?<br>亲爱的
             <button type="button" onclick="move()">准备好就点我!</button>
         </div>

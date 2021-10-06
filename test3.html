@@ -1,62 +1,68 @@
 <!DOCTYPE html>
 <html>
-    <style>
-        #message{
-            color: aqua;
-            position: relative;
-            top: 200px;
-            font-family: 'Courier New', Courier, monospace;
-            font-size: 50px;
-            text-align: center;
-            height: auto;
-            width: auto;
-            background-image: url("./rose.jpg");
-            background-repeat: no-repeat;
-            background-position-x: center;
-        }
-        #progess{
-            width: 50%;
-            height: 30px;
-            position: relative;
-            left: 25%;
-            top: 400px;           
-            background-color: #ddd;
-        }
-        #now{
-            width: 10px;
-            height: 30px;
-            position: relative;
-            background-color: #4CAF50;
-        }
-    </style>
-    <body>
-        <div id="message" >
-            准备好了吗?<br>亲爱的
-            <button type="button" onclick="move()">准备好就点我!</button>
+<style>
+    #message {
+        color: aqua;
+        position: relative;
+        top: 200px;
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 50px;
+        text-align: center;
+        height: auto;
+        width: auto;
+        background-image: url("./rose.jpg");
+        background-repeat: no-repeat;
+        background-position-x: center;
+    }
+    
+    #progess {
+        width: 50%;
+        height: 30px;
+        position: relative;
+        left: 25%;
+        top: 400px;
+        background-color: #ddd;
+    }
+    
+    #now {
+        width: 10px;
+        height: 30px;
+        position: relative;
+        background-color: #4CAF50;
+    }
+</style>
+
+<body>
+    <div id="message">
+        准备好了吗?<br>亲爱的
+        <a href="./index.html"></a>
+    </div>
+    <div id="progess">
+        <div id="now">
         </div>
-        <div id="progess">
-            <div id="now">
-            </div>
-        </div>
-    </body>
-    <script>
-        function trans(){
-            window.open("https://wqyg18.github.io/wqyg18/index.html");
-        }
-        function move(){
-            element=document.getElementById("now");
-            var width=0;
-            var MyFunction=setInterval(Progess,10);
-            function Progess(){
-                if(width==100){
-                    clearInterval(Progess);
-                    document.getElementById("message").innerText="精彩开始啦";
-                    setTimeout(trans,100);
-                }else{
-                    width++;
-                    element.style.width=width + '%';
-                }
+    </div>
+</body>
+<script>
+    function trans() {
+        window.open("https://wqyg18.github.io/wqyg18/index.html");
+    }
+
+    function move() {
+        element = document.getElementById("now");
+        var width = 0;
+        var MyFunction = setInterval(Progess, 10);
+
+        function Progess() {
+            if (width == 100) {
+                clearInterval(Progess);
+                document.getElementById("message").innerText = "精彩开始啦";
+                setTimeout(trans, 100);
+            } else {
+                width++;
+                element.style.width = width + '%';
             }
         }
-    </script>
+    }
+</script>
+
 </html>

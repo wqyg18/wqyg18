@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <link rel="stylesheet" href="file/defalt.css">
     <script type="text/javascript" src="./file/jquery.min.js"></script>
@@ -18,9 +19,9 @@
 <body>
     <div id="clock-box">
         <div id="text">
-            <p>今天是我们在一起的</p>
+            <p>今天是我们认识的</p>
         </div>
-        <div id="clock"></div>           
+        <div id="clock"></div>
     </div>
     <canvas id="garden">
     </canvas>
@@ -29,14 +30,14 @@
     </audio>
 
     <script>
-        (function () {
-            var textAnimate = eval(Jscex.compile("async", function () {
+        (function() {
+            var textAnimate = eval(Jscex.compile("async", function() {
                 var together = new Date();
-                together.setFullYear(2021, 3, 8); 			//时间年月日 这里以0开始!!!!!!!!!!!
-                together.setHours(0);						//小时	
-                together.setMinutes(0);					//分钟
-                together.setSeconds(0);					//秒前一位
-                together.setMilliseconds(0);				//秒第二位
+                together.setFullYear(2021, 6, 15); //时间年月日 这里以0开始!!!!!!!!!!!
+                together.setHours(0); //小时	
+                together.setMinutes(0); //分钟
+                together.setSeconds(0); //秒前一位
+                together.setMilliseconds(0); //秒第二位
 
                 while (true) {
                     timeElapse(together);
@@ -44,7 +45,7 @@
                 }
             }));
 
-            var runAsync = eval(Jscex.compile("async", function () {
+            var runAsync = eval(Jscex.compile("async", function() {
                 textAnimate().start();
             }));
 

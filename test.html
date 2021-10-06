@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="file/defalt.css">
+    <script type="text/javascript" src="./file/jquery.min.js"></script>
+    <script type="text/javascript" src="./file/jscex.min.js"></script>
+    <script type="text/javascript" src="./file/jscex-parser.js"></script>
+    <script type="text/javascript" src="./file/jscex-jit.js"></script>
+    <script type="text/javascript" src="./file/jscex-builderbase.min.js"></script>
+    <script type="text/javascript" src="./file/jscex-async.min.js"></script>
+    <script type="text/javascript" src="./file/jscex-async-powerpack.min.js"></script>
+    <script type="text/javascript" src="./file/functions.js" charset="utf-8"></script>
+    <script type="text/javascript" src="./file/heart.js"></script>
+    <script type="text/javascript" src="./file/roundabout.js"></script>
+    <script type="text/javascript" src="./file/roundabout_shape.js"></script>
+</head>
+<style>
+    #text{
+        position: fixed;
+        top: 20%;
+        left: 50px;
+        font-size: 20px;
+        color: aqua;
+        max-width: 520px;
+    }
+</style>
+
+<body>
+    <div id="clock-box">
+        <div id="clock"></div>           
+    </div>
+    <canvas id="garden">
+    </canvas>
+    <audio loop="true">
+        <source src="./双笙 - 单向箭头.mp3">
+    </audio>
+    <div id="text"></div>
+
+    <script>
+        (function () {
+            var textAnimate = eval(Jscex.compile("async", function () {
+                var together = new Date();
+                together.setFullYear(2021, 3, 8); 			//时间年月日 这里以0开始!!!!!!!!!!!
+                together.setHours(0);						//小时	
+                together.setMinutes(0);					//分钟
+                together.setSeconds(0);					//秒前一位
+                together.setMilliseconds(0);				//秒第二位
+
+                while (true) {
+                timeElapse(together);
+                    $await(Jscex.Async.sleep(1000));
+                }
+            }));
+
+            var runAsync = eval(Jscex.compile("async", function () {
+                textAnimate().start();
+            }));
+
+            runAsync().start();
+
+            var divTyping = document.getElementById('text')
+            var i = 0;
+            var strs = '如果你看见的那些我不会轻易流下的眼泪，我和你分别时的激动，我所说所做的一切，都没有表露出我对你的真实情意，我的心上人，我没有其他的证据可以献给你……让上帝保护你、宽容你、祝福你，直至永远，甚至是在另一个世界。'
+            function typing(str){
+            if(i<=str.length){
+                var timer=setInterval(function(){
+                divTyping.innerHTML = str.slice(0, i++)
+                },30)  
+            }
+            else{
+                clearInterval(timer)
+            }
+            }
+            typing(strs)
+
+        })();
+    </script>
+</body>
+
+</html>
